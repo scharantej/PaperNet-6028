@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Recent Newspaper Articles</title>
+</head>
+<body>
+<h1>Recent Newspaper Articles</h1>
+<table>
+<thead>
+<tr>
+<th>Title</th>
+<th>Author</th>
+<th>Date Published</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+{% for article in articles %}
+<tr>
+<td>{{ article.title }}</td>
+<td>{{ article.author }}</td>
+<td>{{ article.date_published }}</td>
+<td><a href="/article/{{ article.id }}">Read more</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<form action="/search" method="GET">
+<input type="text" name="search_term" placeholder="Search articles">
+<input type="submit" value="Search">
+</form>
+</body>
+</html>
+
+
